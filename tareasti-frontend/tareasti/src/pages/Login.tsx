@@ -1,22 +1,59 @@
+import type React from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Eye, EyeOff, LogIn } from 'lucide-react'
+import { Eye, EyeOff, LogIn, UserPlus } from "lucide-react"
 import "../styles/Login.css"
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
-  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [role, setRole] = useState("")
+  const [error, setError] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (role === "leader") {
-      navigate("/leader-dashboard")
-    } else {
-      navigate("/member-dashboard")
+    setIsLoading(true)
+    setError("")
+
+    try {
+      const response = await fetch("http://localhost:8080/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          rol: role,
+        }),
+        mode: "cors",
+        credentials: "include",
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        localStorage.setItem("user", JSON.stringify(data))
+
+        if (data.rol.toLowerCase() === "lider") {
+          navigate("/leader-dashboard")
+        } else {
+          navigate("/member-dashboard")
+        }
+      } else {
+        setError("Invalid credentials")
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error during login")
+    } finally {
+      setIsLoading(false)
     }
+  }
+
+  const navigateToRegister = () => {
+    navigate("/register")
   }
 
   return (
@@ -28,17 +65,21 @@ export default function LoginPage() {
         </div>
         <div className="card-content">
           <form onSubmit={handleLogin} className="login-form">
+            {error && <div className="error-message">{error}</div>}
+
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="email">Email</label>
               <input
-                id="username"
+                id="email"
                 className="form-input"
-                placeholder="Enter your username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
+
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <div className="password-input-container">
@@ -57,21 +98,36 @@ export default function LoginPage() {
                 </button>
               </div>
             </div>
+
             <div className="form-group">
               <label htmlFor="role">Role</label>
               <select id="role" className="form-select" value={role} onChange={(e) => setRole(e.target.value)} required>
                 <option value="" disabled>
                   Select your role
                 </option>
-                <option value="programmer">Programmer</option>
-                <option value="designer">UI Designer</option>
+                <option value="programador">Programmer</option>
+                <option value="disenador">UI Designer</option>
                 <option value="tester">Tester</option>
-                <option value="leader">Team Leader</option>
+                <option value="lider">Team Leader</option>
               </select>
             </div>
-            <button type="submit" className="login-button">
-              <LogIn className="button-icon" /> Login
+
+            <button type="submit" className="login-button" disabled={isLoading}>
+              {isLoading ? (
+                "Loading..."
+              ) : (
+                <>
+                  <LogIn className="button-icon" /> Login
+                </>
+              )}
             </button>
+
+            <div className="register-section">
+              <p>Don't have an account?</p>
+              <button type="button" className="register-button" onClick={navigateToRegister}>
+                <UserPlus className="button-icon" /> Register
+              </button>
+            </div>
           </form>
         </div>
         <div className="card-footer">
