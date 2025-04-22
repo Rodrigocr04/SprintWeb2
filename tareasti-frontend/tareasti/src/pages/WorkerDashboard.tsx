@@ -50,12 +50,6 @@ export default function WorkerDashboard() {
                 >
                   My Tasks
                 </button>
-                <button
-                  className={`tab-button ${activeTab === "events" ? "active" : ""}`}
-                  onClick={() => setActiveTab("events")}
-                >
-                  Events
-                </button>
               </div>
 
               <div className={`tab-content ${activeTab === "tasks" ? "active" : ""}`}>
@@ -68,17 +62,6 @@ export default function WorkerDashboard() {
                   {/* Task items will be rendered here */}
                   <div className="empty-state">
                     <p>No tasks assigned yet</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`tab-content ${activeTab === "events" ? "active" : ""}`}>
-                <h2 className="section-title">Upcoming Events</h2>
-
-                <div className="events-list">
-                  {/* Event items will be rendered here */}
-                  <div className="empty-state">
-                    <p>No upcoming events</p>
                   </div>
                 </div>
               </div>

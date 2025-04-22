@@ -1,5 +1,4 @@
 package com.example.tareasti_backend.controler;
-
 import com.example.tareasti_backend.model.Usuario;
 import com.example.tareasti_backend.model.Rol;
 import com.example.tareasti_backend.repository.UsuarioRepository;

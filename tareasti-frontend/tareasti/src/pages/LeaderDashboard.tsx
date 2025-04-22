@@ -56,12 +56,6 @@ export default function LeaderDashboard() {
                 >
                   Pending Tasks
                 </button>
-                <button
-                  className={`tab-button ${activeTab === "events" ? "active" : ""}`}
-                  onClick={() => setActiveTab("events")}
-                >
-                  Events
-                </button>
               </div>
 
               <div className={`tab-content ${activeTab === "team" ? "active" : ""}`}>
@@ -113,24 +107,6 @@ export default function LeaderDashboard() {
                   {/* Tasks will be rendered here */}
                   <div className="empty-state">
                     <p>No pending tasks</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`tab-content ${activeTab === "events" ? "active" : ""}`}>
-                <div className="content-header">
-                  <h2 className="section-title">Team Events</h2>
-                  <button className="action-button">
-                    <Plus className="icon" />
-                    Add Event
-                  </button>
-                </div>
-                <p className="section-description">Upcoming events and announcements for the team</p>
-
-                <div className="events-list">
-                  {/* Events will be rendered here */}
-                  <div className="empty-state">
-                    <p>No upcoming events</p>
                   </div>
                 </div>
               </div>

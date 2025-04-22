@@ -1,24 +1,32 @@
 package com.example.tareasti_backend.model;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String nombre;
     private String email;
     private String password;
-    
-    @Enumerated(EnumType.STRING)  
-    private Rol rol;             
-    
+
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
+
     @Enumerated(EnumType.STRING)
     private Nivel nivel;
-    
+
     private boolean disponible = true;
+
+    @OneToMany(mappedBy = "asignadoA")
+    private List<Tarea> tareasAsignadas;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<AsignacionTarea> historialAsignaciones;
 
     // Getters y Setters
     public Long getId() {
@@ -75,5 +83,21 @@ public class Usuario {
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
+    }
+
+    public List<Tarea> getTareasAsignadas() {
+        return tareasAsignadas;
+    }
+
+    public void setTareasAsignadas(List<Tarea> tareasAsignadas) {
+        this.tareasAsignadas = tareasAsignadas;
+    }
+
+    public List<AsignacionTarea> getHistorialAsignaciones() {
+        return historialAsignaciones;
+    }
+
+    public void setHistorialAsignaciones(List<AsignacionTarea> historialAsignaciones) {
+        this.historialAsignaciones = historialAsignaciones;
     }
 }
