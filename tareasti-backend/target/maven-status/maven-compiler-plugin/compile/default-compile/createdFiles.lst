@@ -2,6 +2,7 @@ com\example\tareasti_backend\model\Usuario.class
 com\example\tareasti_backend\model\Prioridad.class
 com\example\tareasti_backend\repository\UsuarioRepository.class
 com\example\tareasti_backend\controler\AuthControler$LoginRequest.class
+com\example\tareasti_backend\controler\LeaderController.class
 com\example\tareasti_backend\model\Nivel.class
 com\example\tareasti_backend\TareastiBackendApplication.class
 com\example\tareasti_backend\model\Tarea.class
@@ -12,6 +13,6 @@ com\example\tareasti_backend\model\AsignacionTarea.class
 com\example\tareasti_backend\controler\AuthControler$LoginResponse.class
 com\example\tareasti_backend\model\EstadoTarea.class
 com\example\tareasti_backend\controler\RegisterControler.class
-com\example\tareasti_backend\controler\WorkerController.class
+com\example\tareasti_backend\controler\WorkerControler.class
 com\example\tareasti_backend\model\Rol.class
 com\example\tareasti_backend\controler\CorsConfig.class

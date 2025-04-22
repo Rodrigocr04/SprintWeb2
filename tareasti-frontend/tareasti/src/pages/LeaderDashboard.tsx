@@ -2,6 +2,7 @@ import { useState } from "react"
 import { LogOut } from 'lucide-react'
 import "../styles/LeaderDashboard.css"
 import { useNavigate } from "react-router-dom"
+import AddTask from "./AddTask"  // Asegúrate de que la ruta sea correcta
 
 export default function LeaderDashboard() {
   const [activeTab, setActiveTab] = useState("team")
@@ -71,6 +72,7 @@ export default function LeaderDashboard() {
               <div className={`tab-content ${activeTab === "tasks" ? "active" : ""}`}>
                 <div className="content-header">
                   <h2 className="section-title">Pending Tasks</h2>
+                  <AddTask />  {/* Aquí agregamos el componente AddTask */}
                 </div>
                 <p className="section-description">Tasks waiting to be assigned to team members</p>
 
