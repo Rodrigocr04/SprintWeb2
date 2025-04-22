@@ -40,7 +40,7 @@ export default function LoginPage() {
         if (data.rol.toLowerCase() === "lider") {
           navigate("/leader-dashboard")
         } else {
-          navigate("/member-dashboard")
+          navigate("/worker-dashboard")
         }
       } else {
         setError("Invalid credentials")

@@ -1,0 +1,175 @@
+.task-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+  }
+  
+  .task-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .task-card.completed {
+    opacity: 0.7;
+    background-color: #f9fafb;
+  }
+  
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  
+  .task-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .task-indicators {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .status-badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: capitalize;
+  }
+  
+  .status-badge.pending {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .status-badge.in-progress {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .status-badge.completed {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .priority-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .priority-badge.low {
+    background-color: #f3f4f6;
+    color: #4b5563;
+  }
+  
+  .priority-badge.medium {
+    background-color: #fff7ed;
+    color: #c2410c;
+  }
+  
+  .priority-badge.high {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  .priority-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .priority-low {
+    color: #4b5563;
+  }
+  
+  .priority-medium {
+    color: #c2410c;
+  }
+  
+  .priority-high {
+    color: #b91c1c;
+  }
+  
+  .priority-text {
+    text-transform: capitalize;
+  }
+  
+  .task-description {
+    font-size: 14px;
+    color: #4b5563;
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+  }
+  
+  .task-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .complete-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0;
+  }
+  
+  .complete-button:hover:not(:disabled) {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+  }
+  
+  .complete-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  }
+  
+  .complete-button.visible {
+    opacity: 1;
+  }
+  
+  .complete-button.completed {
+    background-color: #d1fae5;
+    border-color: #a7f3d0;
+    color: #065f46;
+    opacity: 1;
+  }
+  
+  .complete-button:disabled {
+    cursor: not-allowed;
+  }
+  
+  .check-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* For empty state in the tasks list */
+  .empty-state {
+    text-align: center;
+    padding: 32px 16px;
+    color: #6b7280;
+  }
+  
