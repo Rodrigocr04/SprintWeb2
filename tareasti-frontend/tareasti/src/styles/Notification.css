@@ -1,0 +1,53 @@
+/* Notification container styles */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 300px;
+  max-width: 500px;
+  z-index: 1000; /* Ensure it's above other elements */
+  font-family: sans-serif;
+  font-size: 0.95rem;
+}
+
+/* Success notification style */
+.notification-success {
+  background-color: #e6fffa; /* Light teal background */
+  color: #234e52; /* Dark teal text */
+  border: 1px solid #a8e9de;
+}
+
+/* Error notification style */
+.notification-error {
+  background-color: #fff5f5; /* Light red background */
+  color: #c53030; /* Dark red text */
+  border: 1px solid #fc8181;
+}
+
+.notification p {
+  margin: 0;
+  margin-right: 15px; /* Space between text and close button */
+}
+
+/* Close button style */
+.notification-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: inherit; /* Inherit color from parent (success/error) */
+  padding: 0 5px;
+  line-height: 1;
+}
+
+.notification-close-btn:hover {
+  opacity: 0.7;
+} 

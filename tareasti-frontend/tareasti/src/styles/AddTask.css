@@ -212,3 +212,25 @@
     }
   }
   
+  /* Form Message Styles */
+  .form-message {
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .form-message-success {
+    background-color: #e6fffa; /* Light teal */
+    color: #234e52; /* Dark teal */
+    border: 1px solid #a8e9de;
+  }
+  
+  .form-message-error {
+    background-color: #fff5f5; /* Light red */
+    color: #c53030; /* Dark red */
+    border: 1px solid #fc8181;
+  }
+  

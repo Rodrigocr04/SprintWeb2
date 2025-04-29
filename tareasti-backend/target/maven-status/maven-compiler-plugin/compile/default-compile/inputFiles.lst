@@ -1,16 +1,17 @@
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\controler\AuthControler.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\controler\CorsConfig.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\controler\LeaderController.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\controler\RegisterControler.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\controler\WorkerControler.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\model\AsignacionTarea.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\model\EstadoTarea.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\model\Nivel.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\model\Prioridad.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\model\Rol.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\model\Tarea.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\model\Usuario.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\repository\TareaRepository.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\repository\UsuarioRepository.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\service\AsignadorTareasService.java
-C:\Users\rodri\Desktop\Sprint 2 (Advanced Web)\tareasti-backend\src\main\java\com\example\tareasti_backend\TareastiBackendApplication.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/TareastiBackendApplication.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/controler/AuthControler.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/controler/CorsConfig.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/controler/LeaderController.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/controler/RegisterControler.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/controler/WorkerControler.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/model/AsignacionTarea.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/model/EstadoTarea.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/model/Nivel.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/model/Prioridad.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/model/Rol.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/model/Tarea.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/model/Usuario.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/repository/AsignacionTareaRepository.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/repository/TareaRepository.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/repository/UsuarioRepository.java
+/Users/spiegel/Documents/TEC/6 SEMESTRE/AdvancedWebApp/SprintWeb2/tareasti-backend/src/main/java/com/example/tareasti_backend/service/AsignadorTareasService.java

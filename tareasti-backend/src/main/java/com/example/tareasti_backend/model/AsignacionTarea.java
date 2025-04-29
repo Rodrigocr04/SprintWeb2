@@ -1,5 +1,6 @@
 package com.example.tareasti_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -14,6 +15,7 @@ public class AsignacionTarea {
     @JoinColumn(name = "tarea_id", nullable = false)
     private Tarea tarea;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;

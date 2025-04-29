@@ -9,10 +9,12 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface TareaRepository extends JpaRepository<Tarea, Long> {
-    // Change this to use the correct relationship path
-    @Query("SELECT t FROM Tarea t WHERE t.asignadoA.id = :usuarioId")
-    List<Tarea> findByUsuarioId(@Param("usuarioId") Long usuarioId);
+    // Remove incorrect methods for finding by user ID
+    // @Query("SELECT t FROM Tarea t WHERE t.asignadoA.id = :usuarioId")
+    // List<Tarea> findByUsuarioId(@Param("usuarioId") Long usuarioId);
     
-    // Or alternatively, use the derived query method:
-    List<Tarea> findByAsignadoA_Id(Long usuarioId);
+    // List<Tarea> findByAsignadoA_Id(Long usuarioId);
+
+    // Add method to find tasks by state
+    List<Tarea> findByEstado(EstadoTarea estado);
 }

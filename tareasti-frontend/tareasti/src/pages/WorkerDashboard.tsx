@@ -99,7 +99,7 @@ export default function WorkerDashboard() {
 
   const handleTaskComplete = async (taskId: string) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/tareas/${taskId}/completar`, {
+      const response = await fetch(`http://localhost:8080/api/worker/tasks/${taskId}/complete`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -111,16 +111,22 @@ export default function WorkerDashboard() {
       });
 
       if (response.ok) {
-        setTasks(tasks.map(task => 
-          task.id === taskId 
-            ? { ...task, status: "completed" } 
-            : task
-        ));
+        setTasks(prevTasks => 
+          prevTasks.map(task => 
+            task.id === taskId 
+              ? { ...task, status: "completed" } 
+              : task
+          )
+        );
+        console.log(`Task ${taskId} marked as complete in frontend state.`);
       } else {
-        throw new Error("Failed to complete task");
+        const errorBody = await response.text(); // Get error details
+        console.error("Failed to complete task on backend:", response.status, errorBody);
+        throw new Error(`Failed to complete task: ${response.status} ${errorBody}`);
       }
     } catch (error) {
-      console.error("Error completing task:", error);
+      console.error("Error in handleTaskComplete:", error);
+      // Optionally show an error message to the user here
     }
   };
 

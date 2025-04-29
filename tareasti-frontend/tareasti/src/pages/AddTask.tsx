@@ -7,7 +7,11 @@ import "../styles/AddTask.css"
 type TaskStatus = "pending" | "in-progress" | "completed"
 type TaskPriority = "low" | "medium" | "high"
 
-export default function AddTask() {
+interface AddTaskProps {
+  onTaskAdded?: () => void;
+}
+
+export default function AddTask({ onTaskAdded }: AddTaskProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [formData, setFormData] = useState({
     title: "",
@@ -17,45 +21,81 @@ export default function AddTask() {
     requiredRole: "",
     developerName: "",
   })
+  const [formMessage, setFormMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
   const handleOpenModal = () => {
     setIsModalOpen(true)
   }
 
   const handleCloseModal = () => {
+    setFormMessage(null);
     setIsModalOpen(false)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
+    setFormMessage(null);
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Task data:", formData)
-    // Aquí iría la lógica para enviar los datos al backend
+    try {
+      const response = await fetch('http://localhost:8080/api/leader/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          titulo: formData.title,
+          descripcion: formData.description,
+          prioridad: formData.priority === 'low' ? 'BAJA' : formData.priority === 'medium' ? 'MEDIA' : 'ALTA',
+          rolRequerido: formData.requiredRole.toUpperCase()
+        }),
+      });
 
-    // Reset form and close modal
-    setFormData({
-      title: "",
-      description: "",
-      status: "pending",
-      priority: "medium",
-      requiredRole: "",
-      developerName: "",
-    })
-    setIsModalOpen(false)
+      if (!response.ok) {
+        const errorBody = await response.text();
+        throw new Error(`HTTP error! status: ${response.status} - ${errorBody || 'Failed to create task'}`);
+      }
+
+      const newTask = await response.json();
+      console.log('Task created successfully:', newTask);
+      setFormMessage({ text: 'Task created successfully!', type: 'success' });
+      
+      setFormData({
+        title: "",
+        description: "",
+        status: "pending",
+        priority: "medium",
+        requiredRole: "",
+        developerName: "",
+      });
+
+      setTimeout(() => {
+        if (formMessage?.type === 'success') { 
+          handleCloseModal();
+        }
+        if (onTaskAdded) {
+          onTaskAdded();
+        }
+      }, 1500);
+
+    } catch (error: any) {
+      console.error('Error creating task:', error);
+      setFormMessage({ text: `Error: ${error.message}`, type: 'error' });
+    }
   }
 
   return (
     <div className="add-task-container">
       <button className="add-task-button" onClick={handleOpenModal}>
         <Plus className="add-icon" />
-        <span>Agregar Tarea</span>
+        <span>Add Task</span>
       </button>
 
       {isModalOpen && (
@@ -113,8 +153,8 @@ export default function AddTask() {
                     onChange={handleChange}
                   >
                     <option value="pending">Pendiente</option>
-                    <option value="in-progress">En Progreso</option>
-                    <option value="completed">Completada</option>
+                    <option value="in-progress" disabled>En Progreso</option>
+                    <option value="completed" disabled>Completada</option>
                   </select>
                 </div>
 
@@ -140,30 +180,26 @@ export default function AddTask() {
                 <label htmlFor="requiredRole" className="form-label">
                   Rol Requerido
                 </label>
-                <input
-                  type="text"
+                <select
                   id="requiredRole"
                   name="requiredRole"
-                  className="form-input"
+                  className="form-select"
                   value={formData.requiredRole}
                   onChange={handleChange}
                   required
-                />
+                >
+                  <option value="" disabled>Selecciona un Rol</option>
+                  <option value="PROGRAMADOR">Programador</option>
+                  <option value="DISENADOR">Diseñador</option>
+                  <option value="TESTER">Tester</option>
+                </select>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="developerName" className="form-label">
-                  Nombre del Desarrollador
-                </label>
-                <input
-                  type="text"
-                  id="developerName"
-                  name="developerName"
-                  className="form-input"
-                  value={formData.developerName}
-                  onChange={handleChange}
-                />
-              </div>
+              {formMessage && (
+                <div className={`form-message form-message-${formMessage.type}`}>
+                  {formMessage.text}
+                </div>
+              )}
 
               <div className="form-actions">
                 <button type="button" className="cancel-button" onClick={handleCloseModal}>

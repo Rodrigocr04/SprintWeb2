@@ -351,3 +351,156 @@
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Add styles for Leader Task display */
+.leader-task-wrapper {
+    margin-bottom: 12px; /* Space below the entire task unit */
+    padding-bottom: 10px; /* Space below the assigned info */
+    border-bottom: 1px solid #f3f4f6; /* Subtle separator */
+}
+
+.leader-task-wrapper:last-child {
+    border-bottom: none; /* Remove border from the last item */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.assigned-worker-info {
+    font-size: 0.8rem; /* Slightly smaller font */
+    color: #6b7280;    /* Grey color, matching user-role */
+    margin-top: 8px;   /* Space between task card and this info */
+    margin-left: 4px;  /* Slight indent */
+    padding-left: 12px; /* Align slightly with task content */
+    border-left: 2px solid #e5e7eb; /* Add a visual indicator */
+}
+
+/* Style for Assign Automatically button */
+.assign-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #0ea5e9; /* Match Add Task button */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.assign-button .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.assign-button:hover {
+    background-color: #0284c7; /* Darker shade on hover */
+}
+
+.assign-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25); /* Focus ring */
+}
+
+/* Ensure tasks-list has some base styling if needed */
+.tasks-list {
+    /* Remove min-height if tasks define height */
+    /* Add padding or margin if needed */
+}
+
+/* Styles for Team Members section */
+.member-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 16px;
+}
+
+.member-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.member-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.member-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.availability-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0; /* Prevent dot from shrinking */
+}
+
+.availability-dot.available {
+    background-color: #22c55e; /* Green */
+}
+
+.availability-dot.unavailable {
+    background-color: #ef4444; /* Red */
+}
+
+.member-name {
+    font-size: 1rem; /* 16px */
+    font-weight: 600;
+    color: #111827;
+    margin: 0; /* Remove default heading margin */
+    /* Allow name to wrap if long */
+    word-break: break-word;
+}
+
+.member-details {
+    font-size: 0.875rem; /* 14px */
+    color: #4b5563;
+    margin-bottom: 12px;
+}
+
+.member-status {
+    font-size: 0.8rem; /* Slightly smaller */
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block; /* Fit content */
+}
+
+.member-status.available {
+    background-color: #d1fae5; /* Light green */
+    color: #065f46; /* Dark green */
+}
+
+.member-status.unavailable {
+    background-color: #fee2e2; /* Light red */
+    color: #b91c1c; /* Dark red */
+}
+
+/* Style for the group of buttons in the header */
+.header-button-group {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 10px; /* Spacing between buttons */
+    justify-content: flex-start; /* Align buttons to the start */
+    align-items: center;
+}
+
+/* Adjust button sizing slightly if needed for consistency */
+/* Ensure both .add-task-button (from AddTask.css) and .assign-button have similar padding/font-size */
+/* Example (adjust if needed based on visual check): */
+.assign-button,
+.add-task-button { /* Targeting both for consistency */
+    padding: 10px 16px;
+    font-size: 14px;
+    /* Other properties like border-radius, font-weight should match */
+}

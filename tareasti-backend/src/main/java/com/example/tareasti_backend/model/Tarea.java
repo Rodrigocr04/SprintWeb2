@@ -1,5 +1,6 @@
 package com.example.tareasti_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -30,6 +31,7 @@ public class Tarea {
     @Enumerated(EnumType.STRING)
     private Rol rolRequerido;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "tarea")
     private List<AsignacionTarea> historialAsignaciones;
 

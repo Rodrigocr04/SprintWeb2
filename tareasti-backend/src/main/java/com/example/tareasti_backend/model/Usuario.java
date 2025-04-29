@@ -1,5 +1,6 @@
 package com.example.tareasti_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -22,9 +23,11 @@ public class Usuario {
 
     private boolean disponible = true;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "asignadoA")
     private List<Tarea> tareasAsignadas;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<AsignacionTarea> historialAsignaciones;
 
